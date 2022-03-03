@@ -16,19 +16,19 @@ let links = ["https://open.spotify.com/album/3dNESOkTfBWV7R3bf1GPcS",
   // Complete the Day 2 goals inside this function
 function originalList() {
   songs.forEach(function(songNames) {
-       $(".columnSongs").append(`<li>${songNames}</li>`);
+       $(".songs").append(`<p>${songNames}</p>`);
   });
   images.forEach(function(images) {
-       $(".columnImages").append(`<img src="${images}">`);
+       $(".images").append(`<img src="${images}">`);
   });
   artists.forEach(function(artistNames) {
-       $(".columnArtists").append(`<li>${artistNames}</li>`);
+       $(".artists").append(`<p>${artistNames}</p>`);
   });
   lengths.forEach(function(lengths) {
-       $(".columnLengths").append(`<li>${lengths}</li>`);
+       $(".lengths").append(`<p>${lengths}</p>`);
   });
   links.forEach(function(links) {
-       $(".columnLinks").append(`<li> <a href = "${links}">${links}</a> </li>`);
+       $(".links").append(`<p> <a href = "${links}">${links}</a> </p>`);
   });
 }
 
@@ -37,20 +37,39 @@ function emptySongInfo() {
   clicked so that your playlist does not repeatedly add the data
   too many times. Try commenting out this function call to see 
   what happens without it! */
-  $(".songs").empty();
-  $(".images").empty();
-  $(".artists").empty();
-  $(".lengths").empty();
-  $(".links").empty();
-}
+
+  songs = [];
+  images = [];
+  artists = [];
+  lengths = [];
+  links = [];
+} 
 
 function addSongInfo() {
-  // Complete Day 3 goals inside this function
-}
-originalList();
-/* $("#add").click(function () {
   emptySongInfo();
+  // Complete Day 3 goals inside this function
+  let songInput = $(".title").val();
+  songs.push(songInput);
+  
+  let imageInput = $(".artist").val();
+  images.push(imageInput);
+  
+  let artistsInput = $(".image").val();
+  artists.push(artistsInput);
+  
+  let lengthInput = $(".length").val();
+  lengths.push(lengthInput);
+  
+  let linksInput = $(".link").val();
+  links.push(linksInput);
+  
+  originalList();
+};
+
+originalList();
+$(".add").click(function () {
+
   addSongInfo();
-  displaySongInfo();
+
 });
-*/
+

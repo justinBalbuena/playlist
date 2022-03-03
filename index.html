@@ -16,26 +16,27 @@
     <h1>My Playlist</h1>
     <div class="form">
       <p>Add a new song:</p>
-      <input placeholder="Song Title" class="title" />
-      <input placeholder="Artist Name" class="artist" />
-      <input placeholder="Image URL" class="image" />
-      <input placeholder="Song Link Address" class="link" />
+      <input placeholder="songTitle" class="title" onfocus="this.value=''"/>
+      <input placeholder="artistName" class="artist" onfocus="this.value=''"/>
+      <input placeholder="imageURL" class="image" onfocus="this.value=''"/>
+      <input placeholder="songLinkAddress" class="link" onfocus="this.value=''"/>
+      <input placeholder="songArtist" class="length" onfocus="this.value=''"/>
       <button class="add">Add</button>
     </div>
     <div class="displayImage">
-      <div class="columnImages"></div>
+      <div class="images column"></div>
+    </div>
+    <div class="display" >
+      <div class="songs column"></div>
     </div>
     <div class="display">
-      <div class="columnSongs"></div>
+      <div class="artists column"></div>
     </div>
     <div class="display">
-      <div class="columnArtists"></div>
+      <div class="lengths column"></div>
     </div>
     <div class="display">
-      <div class="columnLengths"></div>
-    </div>
-    <div class="display">
-      <div class="columnLinks"></div>
+      <div class="links column"></div>
     </div>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
