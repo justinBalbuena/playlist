@@ -1,35 +1,54 @@
 // Complete Day 1 goals here
-let songs = ["Brittle Bones Nicky", "By the Sword", "Rock Parade", "Devil Trigger", "Enemy"];
-let images = ["https://images.genius.com/b7773a5bbb51172925d4174fce8aae48.500x500x1.jpg", 
-              "https://images.genius.com/5f2866daec88246edf668a0e00c40afe.1000x1000x1.jpg",
-              "https://i.ytimg.com/vi/MA6iuIKRzPY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCmSHnDBjljyfzoLFtcZJltD7k_WQ",
-              "http://pm1.narvii.com/6953/2b8485fcc08ef4375c1a0314933ed7780c145c0dr1-400-400v2_00.jpg",
-              "https://upload.wikimedia.org/wikipedia/en/5/5c/Enemy_Imagine_Dragons.jpg",
-             ];
-let artists = ["Rare Americans", "iamjakehill", "NAOKI, Arc System Works", "Casey Edwards", "Imagine Dragons"];
-let lengths = ["3:23", "2:06", "4:09", "6:46", "2:54"];
-let links = ["https://open.spotify.com/album/3dNESOkTfBWV7R3bf1GPcS", 
-             "https://open.spotify.com/album/3kdQLkOoQY2TtZflmtlyRa",
-             "https://open.spotify.com/track/7rjWCCv5bO49a99nsLNhfu",
-             "https://open.spotify.com/track/7I8MCiM3A4xvnM6zIiuMZn",
-             "https://open.spotify.com/track/1r9xUipOqoNwggBpENDsvJ"];
+
+let song1 = {
+  name: "Brittle Bones Nicky",
+  image: "https://images.genius.com/b7773a5bbb51172925d4174fce8aae48.500x500x1.jpg",
+  artist: "Rare Americans",
+  length: "3:23",
+  link: "https://open.spotify.com/album/3dNESOkTfBWV7R3bf1GPcS",
+}
+let song2 = {
+  name: "By the Sword",
+  image: "https://images.genius.com/5f2866daec88246edf668a0e00c40afe.1000x1000x1.jpg",
+  artist: "iamjakehill",
+  length: "2:06",
+  link: "https://open.spotify.com/album/3kdQLkOoQY2TtZflmtlyRa",
+}
+let song3 = {
+  name: "Rock Parade",
+  image: "https://i.ytimg.com/vi/MA6iuIKRzPY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCmSHnDBjljyfzoLFtcZJltD7k_WQ",
+  artist: "NAOKI, Arc System Works",
+  length: "4:09",
+  link: "https://open.spotify.com/track/7rjWCCv5bO49a99nsLNhfu",
+}
+let song4 = {
+  name: "Devil Trigger",
+  image: "http://pm1.narvii.com/6953/2b8485fcc08ef4375c1a0314933ed7780c145c0dr1-400-400v2_00.jpg",
+  artist: "Casey Edwards",
+  length: "6:46",
+  link: "https://open.spotify.com/track/7I8MCiM3A4xvnM6zIiuMZn",
+}
+let song5 = {
+  name: "Enemy",
+  image: "https://upload.wikimedia.org/wikipedia/en/5/5c/Enemy_Imagine_Dragons.jpg",
+  artist: "Imagine Dragons",
+  length: "2:54",
+  link: "https://open.spotify.com/track/1r9xUipOqoNwggBpENDsvJ",
+}
+
+
+let playlist = [song1, song2, song3, song4, song5];
+
   // Complete the Day 2 goals inside this function
 function originalList() {
-  songs.forEach(function(songNames) {
-       $(".songs").append(`<p>${songNames}</p>`);
+  playlist.forEach(function(song) {
+    $(".songs").append(`<p>${song.name}</p>`);
+    $(".images").append(`<img src="${song.image}">`);
+    $(".artists").append(`<p>${song.artist}</p>`);
+    $(".lengths").append(`<p>${song.length}</p>`);
+    $(".links").append(`<p> <a href = "${song.link}">${song.link}</a> </p>`);
   });
-  images.forEach(function(images) {
-       $(".images").append(`<img src="${images}">`);
-  });
-  artists.forEach(function(artistNames) {
-       $(".artists").append(`<p>${artistNames}</p>`);
-  });
-  lengths.forEach(function(lengths) {
-       $(".lengths").append(`<p>${lengths}</p>`);
-  });
-  links.forEach(function(links) {
-       $(".links").append(`<p> <a href = "${links}">${links}</a> </p>`);
-  });
+ 
 }
 
 function emptySongInfo() {
@@ -37,31 +56,43 @@ function emptySongInfo() {
   clicked so that your playlist does not repeatedly add the data
   too many times. Try commenting out this function call to see 
   what happens without it! */
-
-  songs = [];
-  images = [];
-  artists = [];
-  lengths = [];
-  links = [];
+  $(".songs").text("");
+  $(".artists").text("");
+  $(".images").text("");
+  $(".lengths").text("");
+  $(".links").text("");
 } 
 
 function addSongInfo() {
   emptySongInfo();
   // Complete Day 3 goals inside this function
+  
+  
   let songInput = $(".title").val();
-  songs.push(songInput);
+  //songs.push(songInput);
   
-  let imageInput = $(".artist").val();
-  images.push(imageInput);
+  let imageInput = $(".image").val();
+  //images.push(imageInput);
   
-  let artistsInput = $(".image").val();
-  artists.push(artistsInput);
+  let artistInput = $(".artist").val();
+  //artists.push(artistInput);
   
   let lengthInput = $(".length").val();
-  lengths.push(lengthInput);
+  //lengths.push(lengthInput);
   
-  let linksInput = $(".link").val();
-  links.push(linksInput);
+  let linkInput = $(".link").val();
+  //links.push(linkInput);
+  
+  //if statement to prevent blank spaces soon
+  let newSong = {
+    name: songInput,
+    image: imageInput,
+    artist: artistInput,
+    length: lengthInput,
+    link: linkInput,
+  }
+  playlist.push(newSong);
+  
   
   originalList();
 };
