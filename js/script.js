@@ -1,47 +1,55 @@
 // Complete Day 1 goals here
+let playList = [
+  //firstsong
+  {
+    name: "Brittle Bones Nicky",
+    image: "https://images.genius.com/b7773a5bbb51172925d4174fce8aae48.500x500x1.jpg",
+    artist: "Rare Americans",
+    length: "3:23",
+    link: "https://open.spotify.com/album/3dNESOkTfBWV7R3bf1GPcS",
+  },
+  
+  //secondsong
+  {
+    name: "By the Sword",
+    image: "https://images.genius.com/5f2866daec88246edf668a0e00c40afe.1000x1000x1.jpg",
+    artist: "iamjakehill",
+    length: "2:06",
+    link: "https://open.spotify.com/album/3kdQLkOoQY2TtZflmtlyRa",
+  },
+  
+  //thirdsong
+  {
+    name: "Rock Parade",
+    image: "https://i.ytimg.com/vi/MA6iuIKRzPY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCmSHnDBjljyfzoLFtcZJltD7k_WQ",
+    artist: "NAOKI, Arc System Works",
+    length: "4:09",
+    link: "https://open.spotify.com/track/7rjWCCv5bO49a99nsLNhfu",
+  },
+  
+  //fourthsong
+  {
+    name: "Devil Trigger",
+    image: "http://pm1.narvii.com/6953/2b8485fcc08ef4375c1a0314933ed7780c145c0dr1-400-400v2_00.jpg",
+    artist: "Casey Edwards",
+    length: "6:46",
+    link: "https://open.spotify.com/track/7I8MCiM3A4xvnM6zIiuMZn",
+  },
+  
+  //fifthsong
+  {
+    name: "Enemy",
+    image: "https://upload.wikimedia.org/wikipedia/en/5/5c/Enemy_Imagine_Dragons.jpg",
+    artist: "Imagine Dragons",
+    length: "2:54",
+    link: "https://open.spotify.com/track/1r9xUipOqoNwggBpENDsvJ",
+  },
+];
 
-let song1 = {
-  name: "Brittle Bones Nicky",
-  image: "https://images.genius.com/b7773a5bbb51172925d4174fce8aae48.500x500x1.jpg",
-  artist: "Rare Americans",
-  length: "3:23",
-  link: "https://open.spotify.com/album/3dNESOkTfBWV7R3bf1GPcS",
-}
-let song2 = {
-  name: "By the Sword",
-  image: "https://images.genius.com/5f2866daec88246edf668a0e00c40afe.1000x1000x1.jpg",
-  artist: "iamjakehill",
-  length: "2:06",
-  link: "https://open.spotify.com/album/3kdQLkOoQY2TtZflmtlyRa",
-}
-let song3 = {
-  name: "Rock Parade",
-  image: "https://i.ytimg.com/vi/MA6iuIKRzPY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCmSHnDBjljyfzoLFtcZJltD7k_WQ",
-  artist: "NAOKI, Arc System Works",
-  length: "4:09",
-  link: "https://open.spotify.com/track/7rjWCCv5bO49a99nsLNhfu",
-}
-let song4 = {
-  name: "Devil Trigger",
-  image: "http://pm1.narvii.com/6953/2b8485fcc08ef4375c1a0314933ed7780c145c0dr1-400-400v2_00.jpg",
-  artist: "Casey Edwards",
-  length: "6:46",
-  link: "https://open.spotify.com/track/7I8MCiM3A4xvnM6zIiuMZn",
-}
-let song5 = {
-  name: "Enemy",
-  image: "https://upload.wikimedia.org/wikipedia/en/5/5c/Enemy_Imagine_Dragons.jpg",
-  artist: "Imagine Dragons",
-  length: "2:54",
-  link: "https://open.spotify.com/track/1r9xUipOqoNwggBpENDsvJ",
-}
-
-
-let playlist = [song1, song2, song3, song4, song5];
 
   // Complete the Day 2 goals inside this function
 function originalList() {
-  playlist.forEach(function(song) {
+  playList.forEach(function(song) {
     $(".songs").append(`<p>${song.name}</p>`);
     $(".images").append(`<img src="${song.image}">`);
     $(".artists").append(`<p>${song.artist}</p>`);
@@ -84,16 +92,25 @@ function addSongInfo() {
   //links.push(linkInput);
   
   //if statement to prevent blank spaces soon
-  let newSong = {
-    name: songInput,
-    image: imageInput,
-    artist: artistInput,
-    length: lengthInput,
-    link: linkInput,
+  if (
+    $(".title").val() != "" &&
+    $(".image").val() != "" &&
+    $(".artist").val() != "" &&
+    $(".length").val() != "" &&
+    $(".link").val() != ""
+  ) {
+    let newSong = {
+      name: songInput,
+      image: imageInput,
+      artist: artistInput,
+      length: lengthInput,
+      link: linkInput,
+    }
+    playList.push(newSong);
+
+
+    originalList();
   }
-  playlist.push(newSong);
-  
-  
   originalList();
 };
 
